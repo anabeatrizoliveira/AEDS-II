@@ -15,7 +15,7 @@ void leitura(alunos *v, int num){
 		setbuf(stdin, NULL);
 		printf("Digite o nome do aluno: \n");
 		gets(v[i].nome);
-		printf("Digite a matrÌcula do aluno: \n");
+		printf("Digite a matr√≠cula do aluno: \n");
 		scanf("%i", &v[i].matricula);
 		printf("Digite a primeira nota do aluno: \n");
 		scanf("%f", &v[i].nota[0]);
@@ -79,12 +79,15 @@ int buscabinaria(alunos *v, int num, int chave){
 	}
 }
 
+void imprime(alunos *v, int posicao){
+	printf("\nDados do aluno com o n√∫mero de matr√≠cula %i:\nNome: %s.\nNota 01: %2.f.\nNota 02: %2.f.\nNota 03: %2.f.\nMedia: %2.f.", v[posicao].matricula, v[posicao].nome, v[posicao].nota[0], v[posicao].nota[1], v[posicao].nota[2], v[posicao].media);
+}
 
 int main () {
 	setlocale(LC_ALL, "Portuguese");
 	alunos *v;
 	int num, chave, posicao;
-	printf("Digite quantos elementos ter· seu vetor: \n");
+	printf("Digite quantos elementos ter√° seu vetor: \n");
 	scanf("%i", &num);
 	
 	v=(alunos*)malloc(num*sizeof(alunos));
@@ -93,29 +96,29 @@ int main () {
 	media(v, num);
 	
 	printf("\nBUSCA SEQUENCIAL.\n");
-	printf("Digite o n˙mero de matrÌcula: \n");
+	printf("Digite o n√∫mero de matr√≠cula: \n");
 	scanf("%i", &chave);
 	posicao=buscasequencial(v, num, chave);
 	
 	
 	if(posicao==-1){
-		printf("\nO n˙mero de matrÌcula buscado n„o existe.\n");
+		printf("\nO n√∫mero de matr√≠cula buscado n√£o existe.\n");
 	}
 	else{
-		printf("\nDados do aluno com o n˙mero de matrÌcula %i:\nNome: %s.\nNota 01: %2.f.\nNota 02: %2.f.\nNota 03: %2.f.\nMedia: %2.f.", v[posicao].matricula, v[posicao].nome, v[posicao].nota[0], v[posicao].nota[1], v[posicao].nota[2], v[posicao].media);
+		imprime(v, posicao);
 	}
 	
-	printf("\nBUSCA BIN¡RIA.\n");
-	printf("Digite o n˙mero que vocÍ quer buscar dentro do vetor: \n");
+	printf("\nBUSCA BIN√ÅRIA.\n");
+	printf("Digite o n√∫mero que voc√™ quer buscar dentro do vetor: \n");
 	scanf("%i", &chave);
 	ordena(v, num);
 	posicao=buscabinaria(v, num, chave);
 	
 	if(posicao==-1){
-		printf("\nO n˙mero de matrÌcula buscado n„o existe.\n");
+		printf("\nO n√∫mero de matr√≠cula buscado n√£o existe.\n");
 	}
 	else{
-		printf("\nDados do aluno com o n˙mero de matrÌcula %i:\nNome: %s.\nNota 01: %2.f.\nNota 02: %2.f.\nNota 03: %2.f.\nMedia: %2.f.", v[posicao].matricula, v[posicao].nome, v[posicao].nota[0], v[posicao].nota[1], v[posicao].nota[2], v[posicao].media);
+		imprime(v, posicao);
 	}
 	
 	free(v);
