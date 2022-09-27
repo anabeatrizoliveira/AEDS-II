@@ -96,7 +96,7 @@ int main () {
 	media(v, num);
 	
 	while(opcao!=0){
-		printf("Digite o número que corresponde à opção que deseja executar:\n1-Busca Sequencial.\n2-Busca Binária");
+		printf("Digite o número que corresponde à opção que deseja executar:\n1-Busca Sequencial.\n2-Busca Binária\n0-Sair do programa.\n");
 		scanf("%i", &opcao);
 		
 		if(opcao==1){
