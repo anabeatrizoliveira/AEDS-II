@@ -5,7 +5,7 @@
 
 void leitura(int *v, int num){
 	for(int i=0; i<num; i++){
-		printf("Digite o %iº elemento do vetor: \n", i+1);
+		printf("Digite o %iÂº elemento do vetor: \n", i+1);
 		scanf("%i", &v[i]);
 	}
 }
@@ -63,7 +63,7 @@ int main () {
 	int *v;
 	int num, chave, posicao;
 	
-	printf("Digite quantos elementos terá seu vetor: \n");
+	printf("Digite quantos elementos terÃ¡ seu vetor: \n");
 	scanf("%i", &num);
 	
 	v=(int*)malloc(num*sizeof(int));
@@ -71,32 +71,33 @@ int main () {
 	leitura(v, num);
 	
 	printf("BUSCA SEQUENCIAL.\n");
-	printf("Digite o número que você quer buscar dentro do vetor: \n");
+	printf("Digite o nÃºmero que vocÃª quer buscar dentro do vetor: \n");
 	scanf("%i", &chave);
 	
 	posicao=buscasequencial(v, num, chave);
 	
 	
 	if(posicao==-1){
-		printf("\nO número buscado não está dentro do vetor.\n");
+		printf("\nO nÃºmero buscado nÃ£o estÃ¡ dentro do vetor.\n");
 	}
 	else{
-		printf("\nA chave %i está na posição a[%i] do vetor.\n", chave, posicao);
+		printf("\nA chave %i estÃ¡ na posiÃ§Ã£o a[%i] do vetor.\n", chave, posicao);
 	}
 	
 	
-	printf("BUSCA BINÁRIA.\n");
-	printf("Digite o número que você quer buscar dentro do vetor: \n");
+	printf("BUSCA BINÃRIA.\n");
+	printf("Digite o nÃºmero que vocÃª quer buscar dentro do vetor: \n");
 	scanf("%i", &chave);
 	ordena(v, num);
 	posicao=buscabinaria(v, num, chave);
 	
 	if(posicao==-1){
-		printf("\nO número buscado não está dentro do vetor.\n");
+		printf("\nO nÃºmero buscado nÃ£o estÃ¡ dentro do vetor.\n");
 	}
 	else{
-		printf("\nA chave %i está na posição a[%i] do vetor.\n", chave, posicao);
+		printf("\nA chave %i estÃ¡ na posiÃ§Ã£o a[%i] do vetor.\n", chave, posicao);
 	}
 	
+	free(v);
 	return 0;
 }
