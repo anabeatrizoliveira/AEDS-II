@@ -86,7 +86,7 @@ void imprime(alunos *v, int posicao){
 int main () {
 	setlocale(LC_ALL, "Portuguese");
 	alunos *v;
-	int num, chave, posicao;
+	int num, chave, posicao, opcao=1;
 	printf("Digite quantos elementos terá seu vetor: \n");
 	scanf("%i", &num);
 	
@@ -95,30 +95,41 @@ int main () {
 	leitura(v, num);
 	media(v, num);
 	
-	printf("\nBUSCA SEQUENCIAL.\n");
-	printf("Digite o número de matrícula: \n");
-	scanf("%i", &chave);
-	posicao=buscasequencial(v, num, chave);
+	while(opcao!=0){
+		printf("Digite o número que corresponde à opção que deseja executar:\n1-Busca Sequencial.\n2-Busca Binária");
+		scanf("%i", &opcao);
+		
+		if(opcao==1){
+			printf("Digite o número de matrícula: \n");
+			scanf("%i", &chave);
+			posicao=buscasequencial(v, num, chave);
+			
+			
+			if(posicao==-1){
+				printf("\nO número de matrícula buscado não existe.\n");
+			}
+			else{
+				imprime(v, posicao);
+			}
+		}
+		
+		else if(opcao==2){
+			printf("Digite o número que você quer buscar dentro do vetor: \n");
+			scanf("%i", &chave);
+			ordena(v, num);
+			posicao=buscabinaria(v, num, chave);
+			
+			if(posicao==-1){
+				printf("\nO número de matrícula buscado não existe.\n");
+			}
+			else{
+			imprime(v, posicao);
+			}
+		}
+		else if(opcao!=1&&opcao!=2&&opcao!=0){
+			printf("Digite uma opção válida.\n");
+		}
 	
-	
-	if(posicao==-1){
-		printf("\nO número de matrícula buscado não existe.\n");
-	}
-	else{
-		imprime(v, posicao);
-	}
-	
-	printf("\nBUSCA BINÁRIA.\n");
-	printf("Digite o número que você quer buscar dentro do vetor: \n");
-	scanf("%i", &chave);
-	ordena(v, num);
-	posicao=buscabinaria(v, num, chave);
-	
-	if(posicao==-1){
-		printf("\nO número de matrícula buscado não existe.\n");
-	}
-	else{
-		imprime(v, posicao);
 	}
 	
 	free(v);
