@@ -49,7 +49,7 @@ void insercao(int a[], int n){
 	for(i=1; i<n; i++){
 		aux=a[i];
 		j=i-1;
-		while(a<a[j]&&j>=0){
+		while(aux<a[j]&&j>=0){
 			a[j+1]=a[j];
 			j--;
 		}
@@ -65,7 +65,7 @@ int main () {
 	int opcao=1;
 	
 	for(i=0; i<MAX; i++){
-		printf("Digite o %iº elemento do seu vetor: \n", i+1);
+		printf("Digite o %iÂº elemento do seu vetor: \n", i+1);
 		scanf("%i", &a.vetor[i]);
 	}
 	
@@ -73,8 +73,8 @@ int main () {
 	imprime(a.vetor, MAX);
 	
 	while(opcao!=0){
-		printf("\nSelecione o método de ordenação que deseja para o seu vetor: \n");
-		printf("1- Método Bolha.\n2- Seleção.\n3- Inserção.\n0- Sair do Programa.\n");
+		printf("\nSelecione o mÃ©todo de ordenaÃ§Ã£o que deseja para o seu vetor: \n");
+		printf("1- MÃ©todo Bolha.\n2- SeleÃ§Ã£o.\n3- InserÃ§Ã£o.\n0- Sair do Programa.\n");
 		scanf("%i", &opcao);
 		
 		if(opcao==1){
@@ -98,7 +98,7 @@ int main () {
 		}
 		
 		else if(opcao>3&&opcao<0){
-			printf("Digite uma opção válida.");
+			printf("Digite uma opÃ§Ã£o vÃ¡lida.");
 		}
 	}
 	
